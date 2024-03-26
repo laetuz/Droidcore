@@ -1,4 +1,4 @@
-package id.neotica.droidcore.ui.component.icon
+package id.neotica.droidcore.component.icon
 
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme

@@ -1,4 +1,4 @@
-package id.neotica.droidcore.ui.component.cards
+package id.neotica.droidcore.component.cards
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

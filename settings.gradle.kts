@@ -8,6 +8,7 @@ pluginManagement {
             }
         }
         mavenCentral()
+        maven(url = "https://jitpack.io")
         gradlePluginPortal()
     }
 }
@@ -21,3 +22,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Droidcore"
 include(":app")
+include(":droidcore")

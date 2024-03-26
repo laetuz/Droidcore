@@ -76,9 +76,9 @@ afterEvaluate {
         publications {
             create<MavenPublication>("maven") {
                 from(components["release"])
-                groupId = "id.neotica.droidcore"
-                artifactId = "droidcore"
-                version = "0.0.1"
+                groupId = "com.github.laetuz"
+                artifactId = "droidcore-neotica"
+                version = "1.0"
             }
         }
     }

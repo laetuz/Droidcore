@@ -16,10 +16,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import id.neotica.droidcore.ui.component.alert.NeoAlert
-import id.neotica.droidcore.ui.component.cards.NeoCard
-import id.neotica.droidcore.ui.component.cards.NeoCard2
-import id.neotica.droidcore.ui.component.icon.AlertEnum
+import id.neotica.droidcore.component.alert.NeoAlert
+import id.neotica.droidcore.component.cards.NeoCard
+import id.neotica.droidcore.component.cards.NeoCard2
+import id.neotica.droidcore.component.icon.AlertEnum
 import id.neotica.droidcore.ui.theme.DroidcoreTheme
 
 class MainActivity : ComponentActivity() {

@@ -1,4 +1,4 @@
-package id.neotica.droidcore.ui.component.icon
+package id.neotica.droidcore.component.icon
 
 enum class AlertEnum {
     INFO,

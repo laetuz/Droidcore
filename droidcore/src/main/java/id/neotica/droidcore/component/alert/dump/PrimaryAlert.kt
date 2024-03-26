@@ -7,7 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
-import id.neotica.droidcore.ui.component.alert.NeoAlert
+import id.neotica.droidcore.component.alert.NeoAlert
 
 @Composable
 fun PrimaryAlert(

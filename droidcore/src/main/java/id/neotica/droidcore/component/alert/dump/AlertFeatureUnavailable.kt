@@ -2,7 +2,7 @@ package id.neotica.droidcore.ui.component.alert.dump
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
-import id.neotica.droidcore.ui.component.alert.NeoAlert
+import id.neotica.droidcore.component.alert.NeoAlert
 
 @Composable
 fun AlertFeatureUnavailable(

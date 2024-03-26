@@ -1,4 +1,4 @@
-package id.neotica.droidcore.ui.component.alert
+package id.neotica.droidcore.component.alert
 
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.MaterialTheme

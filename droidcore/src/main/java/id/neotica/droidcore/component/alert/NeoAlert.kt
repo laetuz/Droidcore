@@ -1,4 +1,4 @@
-package id.neotica.droidcore.ui.component.alert
+package id.neotica.droidcore.component.alert
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
@@ -6,8 +6,8 @@ import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
-import id.neotica.droidcore.ui.component.icon.AlertEnum
-import id.neotica.droidcore.ui.component.icon.AlertIcon
+import id.neotica.droidcore.component.icon.AlertEnum
+import id.neotica.droidcore.component.icon.AlertIcon
 
 
 @Composable

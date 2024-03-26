@@ -70,3 +70,16 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("maven") {
+                from(components["release"])
+                groupId = "id.neotica.droidcore"
+                artifactId = "droidcore"
+                version = "0.0.1"
+            }
+        }
+    }
+}

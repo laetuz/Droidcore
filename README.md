@@ -1,8 +1,8 @@
-Droidcore, by Neotica
+Droidcore
 =====
-Current version: ![Release](https://jitpack.io/v/laetuz/Droidcore.svg)
+![Release](https://jitpack.io/v/laetuz/Droidcore.svg)
 
-Droidcore is an Android library that gives you a various pre-built Jetpack Compose component, curated by Ryo Martin Sopian, the founder of Neotica.id.
+Droidcore is an Android library that gives you various pre-built Jetpack Compose component, curated and built with love from the team of [Neotica](https://neotica.id).
 
 <img src="https://github.com/laetuz/Droidcore/assets/100233549/8b34778f-2013-4962-994d-43d2f14f1989" width="300">
 

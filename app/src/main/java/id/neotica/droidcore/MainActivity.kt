@@ -11,8 +11,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -20,6 +22,9 @@ import id.neotica.droidcore.component.alert.NeoAlert
 import id.neotica.droidcore.component.cards.NeoCard
 import id.neotica.droidcore.component.cards.NeoCard2
 import id.neotica.droidcore.component.icon.AlertEnum
+import id.neotica.droidcore.component.textfield.NeoTextField
+import id.neotica.droidcore.component.textfield.PasswordTextField
+//import id.neotica.droidcore.component.textfield.PasswordTextField
 import id.neotica.droidcore.ui.theme.DroidcoreTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,6 +32,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val openDialog = remember { mutableStateOf(false) }
+            var textFieldValue by remember { mutableStateOf("") }
+            var passwordState by remember { mutableStateOf("") }
+
             DroidcoreTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -50,7 +58,11 @@ class MainActivity : ComponentActivity() {
                                 Spacer(Modifier.padding(5.dp))
                                 NeoCard(desc = "NeoCard without title") {
                                 }
+                                NeoTextField(value = textFieldValue)
+                                Spacer(Modifier.padding(5.dp))
+                                PasswordTextField(value = passwordState, placeHolder = "password")
                             }
+                            
 
                             if (openDialog.value) {
                                 NeoAlert(

@@ -6,8 +6,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -37,9 +37,9 @@ fun NeoTextField(
                 textFieldValue = it
             },
             leadingIcon = icon,
-            colors = TextFieldDefaults.outlinedTextFieldColors(
+            colors = OutlinedTextFieldDefaults.colors(
                 focusedBorderColor = MaterialTheme.colorScheme.primary,
-                unfocusedBorderColor = Color.LightGray
+                unfocusedBorderColor = Color.LightGray,
             ),
             placeholder = { Text(placeHolder?: "") },
             modifier = Modifier
@@ -48,7 +48,8 @@ fun NeoTextField(
             shape = RoundedCornerShape(10.dp),
             visualTransformation = visualTransformation,
             isError = isError?: false,
-            trailingIcon = trailingIcon
+            trailingIcon = trailingIcon,
+            maxLines = 1
         )
     }
 }

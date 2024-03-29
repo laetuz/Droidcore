@@ -1,4 +1,4 @@
-package id.neotica.droidcore.component.cards
+package id.neotica.droidcore.component.cards.deprecated
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

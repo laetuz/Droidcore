@@ -105,18 +105,6 @@ const val wallpaperScheme = Wallpapers.NONE
 @Composable
 fun DroidcorePreview() {
     DroidcoreTheme {
-        //TestContent()
-        /*Column(modifier = Modifier.height(150.dp)) {
-            Pocket(
-                title = "Pocket Title",
-              //  titleBody = "Body Title"
-            ) {
-                Text("Body Content")
-                ButtonCard(desc = "dfsd") {
-                    
-                }
-            }
-        }*/
         TestContent()
     }
 }

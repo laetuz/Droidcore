@@ -10,7 +10,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun NeoCard(
+fun ButtonCard(
     title: String? = null, /**Enter Card title here, value can be null.**/
     desc: String, /**Enter Card desc here**/
     button: String? = "NeoButton",  /**Enter Button title here, value will be assigned to "NeoButton if null.**/

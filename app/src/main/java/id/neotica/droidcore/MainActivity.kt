@@ -51,14 +51,6 @@ fun TestContent() {
     LazyColumn {
         item {
             Spacer(Modifier.padding(5.dp))
-
-            Pocket(
-                title = "Pocket Title",
-                  titleBody = "Body Title"
-            ) {
-                Text("Body Content")
-            }
-            Spacer(Modifier.padding(5.dp))
             Pocket(
                 title = "Pocket",
                 titleBody = "This is Pocket's Body.",
@@ -75,11 +67,13 @@ fun TestContent() {
                 Spacer(Modifier.padding(5.dp))
                 ButtonCard(desc = "ButtonCard without title") {
                 }
+                Spacer(Modifier.padding(5.dp))
                 NeoTextField(textFieldValue)
+                Spacer(Modifier.padding(5.dp))
                 Spacer(Modifier.padding(5.dp))
                 PasswordTextField(
                     value = passwordState,
-                    placeHolder = "password"
+                    placeholder = "password"
                 )
             }
 

@@ -18,14 +18,14 @@ android {
 
     buildTypes {
         debug {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }
         release {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -77,7 +77,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.laetuz"
                 artifactId = "droidcore-neotica"
-                version = "1.2.0"
+                version = "1.2.1"
             }
         }
     }

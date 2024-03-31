@@ -2,10 +2,9 @@ Droidcore
 =====
 ![Release](https://jitpack.io/v/laetuz/Droidcore.svg)
 
-Droidcore is an Android library that gives you various pre-built Jetpack Compose component, curated and built with love from the team of [Neotica](https://neotica.id).
+Droidcore is an Android library that gives you various pre-built Jetpack Compose component, curated and built with love from the team at [Neotica](https://neotica.id).
 
-<img src="https://github.com/laetuz/Droidcore/assets/100233549/8b34778f-2013-4962-994d-43d2f14f1989" width="300">
-
+<img src="https://github.com/laetuz/Droidcore/assets/100233549/f05b510e-cdef-4e85-b1f5-a0008bdcce9a" width="300">
 
 Implementing Droidcore to your project
 =====

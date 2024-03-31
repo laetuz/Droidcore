@@ -18,12 +18,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun NeoCard2(
-    columnOne: (@Composable () -> Unit)?=null,
-    columnOneText: String? = null,
-    columnOneTextTwo: String? = null,
-    columnTwo: @Composable () -> Unit,
-    content: @Composable () -> Unit
+fun Pocket(
+    header: (@Composable () -> Unit)?=null,
+    title: String? = null,
+    titleBody: String? = null,
+    body: (@Composable () -> Unit) ? = null,
+    content: (@Composable () -> Unit) ? = null
 ) {
     Card(
         modifier = Modifier
@@ -37,12 +37,9 @@ fun NeoCard2(
         Column(
             modifier = Modifier.padding(10.dp, 10.dp)
         ) {
-            columnOne?.invoke()
-            if (columnOneText != null) {
-                Text(text = columnOneText, color = Color.White, style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold), modifier = Modifier.padding(horizontal = 16.dp))
-            }
-            if (columnOneTextTwo != null) {
-                Text(text = columnOneTextTwo, color = Color.White, style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold), modifier = Modifier.padding(horizontal = 16.dp))
+            header?.invoke()
+            if (title != null) {
+                Text(text = title, color = Color.White, style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold), modifier = Modifier.padding(horizontal = 16.dp))
             }
         }
         Spacer(modifier = Modifier.height(18.dp))
@@ -58,7 +55,10 @@ fun NeoCard2(
                     .fillMaxSize()
                     .padding(horizontal = 20.dp, 18.dp),
             ) {
-                columnTwo()
+                body?.invoke()
+                if (titleBody != null) {
+                    Text(text = titleBody, color = MaterialTheme.colorScheme.primary, style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold), modifier = Modifier.padding(horizontal = 16.dp))
+                }
             }
             Column(
                 modifier = Modifier
@@ -66,7 +66,7 @@ fun NeoCard2(
                     .padding(10.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                content()
+                content?.invoke()
             }
         }
     }

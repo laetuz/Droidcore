@@ -57,7 +57,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
@@ -78,7 +77,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.laetuz"
                 artifactId = "droidcore-neotica"
-                version = "1.1"
+                version = "1.2"
             }
         }
     }

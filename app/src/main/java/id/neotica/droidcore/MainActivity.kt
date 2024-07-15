@@ -47,6 +47,7 @@ fun TestContent() {
     val openDialog = remember { mutableStateOf(false) }
     val textFieldValue by remember { mutableStateOf("") }
     val passwordState by remember { mutableStateOf("") }
+    val text by remember { mutableStateOf("") }
 
     LazyColumn {
         item {
@@ -64,6 +65,8 @@ fun TestContent() {
                 ) {
                     openDialog.value = true
                 }
+                Spacer(Modifier.padding(5.dp))
+//                PinInput(text)
                 Spacer(Modifier.padding(5.dp))
                 ButtonCard(desc = "ButtonCard without title") {
                 }

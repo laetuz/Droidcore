@@ -2,7 +2,6 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    alias(libs.plugins.jetbrainsKotlinCompose)
     id("maven-publish")
 }
 
@@ -16,7 +15,12 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
-
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.1"
+    }
     buildTypes {
         debug {
             isMinifyEnabled = false
@@ -73,7 +77,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.laetuz"
                 artifactId = "droidcore-neotica"
-                version = "1.2.2"
+                version = "1.2.3"
             }
         }
     }

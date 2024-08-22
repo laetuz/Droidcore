@@ -37,7 +37,7 @@ settings.gradle.kts
 And then add to your dependency on your build.gradle(app) file:
 ```gradle
 dependencies {
-    implementation ("com.github.laetuz:Droidcore:1.2.1")
+    implementation ("com.github.laetuz:Droidcore:1.2.4")
 }
 ```
 Remember to always add the latest release version.
@@ -46,7 +46,7 @@ List of components
 =====
 1. [NeoTextField](https://neotica.notion.site/9ee8c7af1e0f4c07a4e476726512fa34?pvs=25#bd553abe5644417b8740c55573704f56 'NeoTextField')
 
-   <img src="https://github.com/laetuz/Droidcore/assets/100233549/92ae0a35-c8c9-4059-989e-aa5d2b67e19f" width="300">
+   img src="https://github.com/laetuz/Droidcore/assets/100233549/92ae0a35-c8c9-4059-989e-aa5d2b67e19f" width="300">
 
 2. [PasswordTextField](https://neotica.notion.site/9ee8c7af1e0f4c07a4e476726512fa34?pvs=25#e3dbcdc2b5b440f2a70bc47642464112 'PasswordTextField')
 

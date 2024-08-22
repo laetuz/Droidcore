@@ -16,6 +16,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.Wallpapers
 import androidx.compose.ui.unit.dp
@@ -45,8 +46,10 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun TestContent() {
     val openDialog = remember { mutableStateOf(false) }
-    val textFieldValue by remember { mutableStateOf("") }
-    val passwordState by remember { mutableStateOf("") }
+    var textFieldValue = remember { mutableStateOf("") }
+    val passwordState = remember { mutableStateOf("") }
+    val text by remember { mutableStateOf("") }
+    val context = LocalContext.current
 
     LazyColumn {
         item {
@@ -65,10 +68,12 @@ fun TestContent() {
                     openDialog.value = true
                 }
                 Spacer(Modifier.padding(5.dp))
+//                PinInput(text)
+                Spacer(Modifier.padding(5.dp))
                 ButtonCard(desc = "ButtonCard without title") {
                 }
                 Spacer(Modifier.padding(5.dp))
-                NeoTextField(textFieldValue)
+                NeoTextField(textFieldValue, label = "Name")
                 Spacer(Modifier.padding(5.dp))
                 Spacer(Modifier.padding(5.dp))
                 PasswordTextField(

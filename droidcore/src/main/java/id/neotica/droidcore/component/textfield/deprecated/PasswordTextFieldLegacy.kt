@@ -9,6 +9,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -23,15 +24,15 @@ import id.neotica.droidcore.component.textfield.NeoTextField
 
 @Composable
 fun PasswordTextFieldLegacy(
-    value: String,
+    value: MutableState<String>,
     placeHolder: String? = null
 ) {
     var showError by remember { mutableStateOf(false) }
     var errorText by remember { mutableStateOf("") }
-    val isPasswordValid = value.length >= 6 // Minimum password length requirement
+    val isPasswordValid = value.value.length >= 6 // Minimum password length requirement
     var passwordVisible by remember { mutableStateOf(false) }
 
-    if (!isPasswordValid && value.isNotEmpty()) {
+    if (!isPasswordValid && value.value.isNotEmpty()) {
         showError = true
         errorText = "Password must be at least 6 characters long"
     } else {
@@ -77,11 +78,4 @@ fun PasswordTextFieldLegacy(
             modifier = Modifier.padding(start = 16.dp, top = 4.dp)
         )
     }
-}
-
-@Composable
-fun RePasswordTextField(
-    value: String
-) {
-    PasswordTextFieldLegacy(value = value, placeHolder = "Retype your password.")
 }

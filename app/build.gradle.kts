@@ -78,6 +78,6 @@ dependencies {
     implementation("io.github.seyoungcho2:filled-slider-compose:1.0.0")
     implementation(project(":droidcore"))
 
-  //  implementation ("com.github.laetuz:Droidcore:3d2cf4da53")
+//    implementation ("com.github.laetuz:Droidcore:1.1")
 }
 

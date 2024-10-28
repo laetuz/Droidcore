@@ -4,7 +4,7 @@ Droidcore
 
 Droidcore is an Android library that gives you various pre-built Jetpack Compose component, curated and built with love from the team at [Neotica](https://neotica.id).
 
-<img src="https://github.com/laetuz/Droidcore/assets/100233549/f05b510e-cdef-4e85-b1f5-a0008bdcce9a" width="300">
+<img src="https://github.com/user-attachments/assets/f9a48cae-176b-4f81-a553-c4bd63244d06" width="300">
 
 Implementing Droidcore to your project
 =====
@@ -63,3 +63,7 @@ List of components
 5. [NeoAlert](https://neotica.notion.site/9ee8c7af1e0f4c07a4e476726512fa34?pvs=25#dce2b0f3c01c4b7e83561fc7fc610011 'NeoAlert')
 
    <img src="https://github.com/laetuz/Droidcore/assets/100233549/027ac917-6115-423e-ad87-91ccb6e9f1fc" width="300">
+
+6. [CarouselCard](https://neotica.notion.site/9ee8c7af1e0f4c07a4e476726512fa34?pvs=25#dce2b0f3c01c4b7e83561fc7fc610011 'CarouselCard')
+
+   <img src="https://github.com/user-attachments/assets/a612ac03-6f4e-4df9-a974-f0b7186866f3" width="300">

@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -13,18 +14,24 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.Wallpapers
 import androidx.compose.ui.unit.dp
 import id.neotica.droidcore.component.alert.NeoAlert
+import id.neotica.droidcore.component.button.NeoButton
 import id.neotica.droidcore.component.cards.ButtonCard
 import id.neotica.droidcore.component.cards.Pocket
+import id.neotica.droidcore.component.carousel.CarouselCard
 import id.neotica.droidcore.component.icon.AlertEnum
+import id.neotica.droidcore.component.image.NetworkImage
 import id.neotica.droidcore.component.textfield.NeoTextField
+import id.neotica.droidcore.component.textfield.NumberField
 import id.neotica.droidcore.component.textfield.PasswordTextField
 import id.neotica.droidcore.ui.theme.DroidcoreTheme
 
@@ -48,40 +55,71 @@ fun TestContent() {
     val openDialog = remember { mutableStateOf(false) }
     var textFieldValue = remember { mutableStateOf("") }
     val passwordState = remember { mutableStateOf("") }
+    val numberState = remember { mutableIntStateOf(0) }
     val text by remember { mutableStateOf("") }
     val context = LocalContext.current
+
+    val carouselList = listOf(
+        CarouselObject(
+            "ff",
+            "https://firebasestorage.googleapis.com/v0/b/neoverse-neotica.appspot.com/o/profilePicture%2Ficon.png?alt=media&token=c6e5b358-78c6-41c1-9c0c-a314e4cd258c"
+        ),
+        CarouselObject(
+            "ff",
+            "https://firebasestorage.googleapis.com/v0/b/neoverse-neotica.appspot.com/o/profilePicture%2Ficon.png?alt=media&token=c6e5b358-78c6-41c1-9c0c-a314e4cd258c"
+        ),
+        CarouselObject(
+            "ff",
+            "https://firebasestorage.googleapis.com/v0/b/neoverse-neotica.appspot.com/o/profilePicture%2Ficon.png?alt=media&token=c6e5b358-78c6-41c1-9c0c-a314e4cd258c"
+        ),
+    )
+    val carouselPageState = rememberSaveable { mutableIntStateOf(0) }
 
     LazyColumn {
         item {
             Spacer(Modifier.padding(5.dp))
-            Pocket(
-                title = "Pocket",
-                titleBody = "This is Pocket's Body.",
-            ) {
-                Text("This is Pocket's Content.")
-                Spacer(Modifier.padding(5.dp))
-                ButtonCard(
-                    title = "ButtonCard",
-                    desc = "This is ButtonCard",
-                    button = "NeoAlert"
+            Column {
+                Pocket(
+                    title = "Pocket",
+                    titleBody = "This is Pocket's Title Body.",
                 ) {
-                    openDialog.value = true
+                    Text("This is Pocket's Content.")
+                    CarouselCard(
+                        list = carouselList,
+                        currentPageState = carouselPageState,
+                        enableIndicator = true
+                    ) {
+                        NetworkImage(it.imageUrl)
+                        Text(it.name)
+                    }
+                    Spacer(Modifier.padding(5.dp))
+                    ButtonCard(
+                        title = "ButtonCard",
+                        desc = "This is ButtonCard",
+                        button = "NeoAlert"
+                    ) {
+                        openDialog.value = true
+                    }
+                    Spacer(Modifier.padding(5.dp))
+                    NeoButton("NeoButton")
+                    Spacer(Modifier.padding(5.dp))
+                    ButtonCard(desc = "ButtonCard without title") {
+                    }
+                    Spacer(Modifier.padding(5.dp))
+                    NeoTextField(textFieldValue, label = "NeoTextField")
+                    Spacer(Modifier.padding(5.dp))
+                    Spacer(Modifier.padding(5.dp))
+                    PasswordTextField(
+                        value = passwordState,
+                        placeholder = "password",
+                    )
+                    Spacer(Modifier.padding(5.dp))
+                    NumberField(numberState, label = "NumberField")
                 }
-                Spacer(Modifier.padding(5.dp))
-//                PinInput(text)
-                Spacer(Modifier.padding(5.dp))
-                ButtonCard(desc = "ButtonCard without title") {
-                }
-                Spacer(Modifier.padding(5.dp))
-                NeoTextField(textFieldValue, label = "Name")
-                Spacer(Modifier.padding(5.dp))
-                Spacer(Modifier.padding(5.dp))
-                PasswordTextField(
-                    value = passwordState,
-                    placeholder = "password"
-                )
             }
 
+
+            Spacer(Modifier.padding(12.dp))
 
             if (openDialog.value) {
                 NeoAlert(
@@ -118,3 +156,8 @@ fun DroidcorePreviewDark() {
         TestContent()
     }
 }
+
+data class CarouselObject(
+    val name: String,
+    val imageUrl: String
+)

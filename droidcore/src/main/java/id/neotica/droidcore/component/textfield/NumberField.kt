@@ -16,12 +16,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun NeoTextField(
-    value: MutableState<String>,
+fun NumberField(
+    value: MutableState<Int>,
     onValueChange: ((String) -> Unit)? = null,
     icon: (@Composable () -> Unit)? = null,
     placeHolder: String? = null,
@@ -34,9 +35,9 @@ fun NeoTextField(
     var textFieldValue by remember { value }
 
     OutlinedTextField(
-        value = textFieldValue,
+        value = if (textFieldValue != 0) textFieldValue.toString() else "",
         onValueChange =  {
-            textFieldValue = it
+            textFieldValue = if (it == "") 0 else it.toInt()
             onValueChange?.invoke(it)
         },
         leadingIcon = icon,
@@ -49,13 +50,14 @@ fun NeoTextField(
             .fillMaxWidth()
             .heightIn(min = 48.dp),
         shape = RoundedCornerShape(10.dp),
-        keyboardOptions = KeyboardOptions(
-            imeAction = imeAction
-        ),
         visualTransformation = visualTransformation,
         isError = isError == true,
         trailingIcon = trailingIcon,
         maxLines = 1,
+        keyboardOptions = KeyboardOptions.Default.copy(
+            keyboardType = KeyboardType.Number,
+            imeAction = imeAction
+        ),
         label = {
             if (label != null) {
                 Text(text = label)

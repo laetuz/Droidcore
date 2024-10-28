@@ -3,6 +3,7 @@ package id.neotica.droidcore.component.image
 import android.graphics.BitmapFactory
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
@@ -42,7 +43,7 @@ fun NetworkImage(
                 Image(
                     bitmap = bitmap,
                     contentDescription = contentDescription,
-                    modifier = Modifier.size(128.dp)
+                    modifier = Modifier.fillMaxSize()
                 )
             }
         }

@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,13 +19,13 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.Wallpapers
 import androidx.compose.ui.unit.dp
 import id.neotica.droidcore.component.alert.NeoAlert
-import id.neotica.droidcore.component.button.NeoButton
 import id.neotica.droidcore.component.cards.ButtonCard
 import id.neotica.droidcore.component.cards.Pocket
 import id.neotica.droidcore.component.carousel.CarouselCard
@@ -61,23 +62,23 @@ fun TestContent() {
 
     val carouselList = listOf(
         CarouselObject(
-            "ff",
-            "https://firebasestorage.googleapis.com/v0/b/neoverse-neotica.appspot.com/o/profilePicture%2Ficon.png?alt=media&token=c6e5b358-78c6-41c1-9c0c-a314e4cd258c"
+            "Carousel Content",
+            "https://firebasestorage.googleapis.com/v0/b/neoverse-neotica.appspot.com/o/heroPicture%2FIMG_730510416183.jpeg?alt=media&token=246027e3-27b6-48df-8be7-01b66067c68f"
         ),
         CarouselObject(
-            "ff",
-            "https://firebasestorage.googleapis.com/v0/b/neoverse-neotica.appspot.com/o/profilePicture%2Ficon.png?alt=media&token=c6e5b358-78c6-41c1-9c0c-a314e4cd258c"
+            "Carousel Content",
+            "https://firebasestorage.googleapis.com/v0/b/neoverse-neotica.appspot.com/o/heroPicture%2FIMG_730510416183.jpeg?alt=media&token=246027e3-27b6-48df-8be7-01b66067c68f"
         ),
         CarouselObject(
-            "ff",
-            "https://firebasestorage.googleapis.com/v0/b/neoverse-neotica.appspot.com/o/profilePicture%2Ficon.png?alt=media&token=c6e5b358-78c6-41c1-9c0c-a314e4cd258c"
+            "Carousel Content",
+            "https://firebasestorage.googleapis.com/v0/b/neoverse-neotica.appspot.com/o/heroPicture%2FIMG_730510416183.jpeg?alt=media&token=246027e3-27b6-48df-8be7-01b66067c68f"
         ),
     )
     val carouselPageState = rememberSaveable { mutableIntStateOf(0) }
 
     LazyColumn {
         item {
-            Spacer(Modifier.padding(5.dp))
+            Spacer(Modifier.padding(18.dp))
             Column {
                 Pocket(
                     title = "Pocket",
@@ -89,8 +90,19 @@ fun TestContent() {
                         currentPageState = carouselPageState,
                         enableIndicator = true
                     ) {
-                        NetworkImage(it.imageUrl)
-                        Text(it.name)
+                        Box(
+                            Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            NetworkImage(
+                                url = it.imageUrl,
+                                modifier = Modifier.fillMaxSize()
+                            )
+                            Text(
+                                it.name,
+                                Modifier.fillMaxSize().align(Alignment.BottomCenter)
+                            )
+                        }
                     }
                     Spacer(Modifier.padding(5.dp))
                     ButtonCard(
@@ -101,7 +113,6 @@ fun TestContent() {
                         openDialog.value = true
                     }
                     Spacer(Modifier.padding(5.dp))
-                    NeoButton("NeoButton")
                     Spacer(Modifier.padding(5.dp))
                     ButtonCard(desc = "ButtonCard without title") {
                     }

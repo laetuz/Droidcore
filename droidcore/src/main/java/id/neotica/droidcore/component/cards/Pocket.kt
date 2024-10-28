@@ -1,8 +1,8 @@
 package id.neotica.droidcore.component.cards
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -11,7 +11,6 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -22,13 +21,13 @@ fun Pocket(
     header: (@Composable () -> Unit)?=null,
     title: String? = null,
     titleBody: String? = null,
-    body: (@Composable () -> Unit) ? = null,
-    content: (@Composable () -> Unit) ? = null
+    paddingValues: PaddingValues = PaddingValues(10.dp),
+    content: (@Composable () -> Unit) ? = null,
 ) {
     Card(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(horizontal = 10.dp),
+            .fillMaxWidth()
+            .padding(paddingValues),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.primary
         )
@@ -52,20 +51,12 @@ fun Pocket(
         ) {
             Column(
                 modifier = Modifier
-                    .fillMaxSize()
-                    .padding(horizontal = 20.dp, 18.dp),
-            ) {
-                body?.invoke()
-                if (titleBody != null) {
-                    Text(text = titleBody, color = MaterialTheme.colorScheme.primary, style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold), modifier = Modifier.padding(horizontal = 16.dp))
-                }
-            }
-            Column(
-                modifier = Modifier
                     .fillMaxWidth()
-                    .padding(10.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
+                    .padding(horizontal = 20.dp, vertical = 18.dp),
             ) {
+                if (titleBody != null) {
+                    Text(text = titleBody, color = MaterialTheme.colorScheme.primary, style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold))
+                }
                 content?.invoke()
             }
         }

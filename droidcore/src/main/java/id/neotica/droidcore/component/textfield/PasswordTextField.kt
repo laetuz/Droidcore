@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Lock
@@ -25,6 +26,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
@@ -36,6 +39,7 @@ fun PasswordTextField(
     onValueChange: ((String) -> Unit)? = null,
     icon: (@Composable () -> Unit)? = null,
     placeholder: String? = null,
+    imeAction: ImeAction = ImeAction.Done,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     isError: Boolean? = false,
     trailingIcon: (@Composable () -> Unit)? = null,
@@ -75,6 +79,10 @@ fun PasswordTextField(
                 .fillMaxWidth()
                 .heightIn(min = 48.dp),
             shape = RoundedCornerShape(10.dp),
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Password,
+                imeAction = imeAction
+            ),
             visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
             isError = isError ?: false,
             trailingIcon = {

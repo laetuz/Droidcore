@@ -37,7 +37,7 @@ settings.gradle.kts
 And then add to your dependency on your build.gradle(app) file:
 ```gradle
 dependencies {
-    implementation ("com.github.laetuz:Droidcore:1.2.5")
+    implementation ("com.github.laetuz:Droidcore:1.2.6")
 }
 ```
 Remember to always add the latest release version.

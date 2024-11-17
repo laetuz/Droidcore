@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -22,7 +23,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun NumberField(
-    value: MutableState<Int>,
+    value: MutableState<Long>,
     onValueChange: ((String) -> Unit)? = null,
     icon: (@Composable () -> Unit)? = null,
     placeHolder: String? = null,
@@ -32,13 +33,21 @@ fun NumberField(
     trailingIcon: (@Composable () -> Unit)? = null,
     label: String? = null
 ) {
-    var textFieldValue by remember { value }
+    var textFieldValue by remember { mutableStateOf(value.value.toString()) }
 
     OutlinedTextField(
-        value = if (textFieldValue != 0) textFieldValue.toString() else "",
+        value = if (value.value.toInt() != 0) textFieldValue else "",
         onValueChange =  {
-            textFieldValue = if (it == "") 0 else it.toInt()
-            onValueChange?.invoke(it)
+            val newValue = it.toLongOrNull()
+            if (newValue != null) {
+                textFieldValue = it
+                value.value = newValue
+                onValueChange?.invoke(it)
+            } else {
+                textFieldValue = ""
+                value.value = 0
+                onValueChange?.invoke("")
+            }
         },
         leadingIcon = icon,
         colors = OutlinedTextFieldDefaults.colors(

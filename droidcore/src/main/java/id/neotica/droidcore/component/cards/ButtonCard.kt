@@ -55,7 +55,7 @@ fun ButtonCard(
                     overflow = TextOverflow.Ellipsis,
                 )
             }
-            NeoButton("$button")
+            NeoButton("$button") { onClick() }
         }
     }
 }

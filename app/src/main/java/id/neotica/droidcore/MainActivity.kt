@@ -16,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -54,9 +55,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun TestContent() {
     val openDialog = remember { mutableStateOf(false) }
-    var textFieldValue = remember { mutableStateOf("") }
+    val textFieldValue = remember { mutableStateOf("") }
     val passwordState = remember { mutableStateOf("") }
-    val numberState = remember { mutableIntStateOf(0) }
+    val numberState = remember { mutableLongStateOf(0) }
     val text by remember { mutableStateOf("") }
     val context = LocalContext.current
 
@@ -115,6 +116,7 @@ fun TestContent() {
                     Spacer(Modifier.padding(5.dp))
                     Spacer(Modifier.padding(5.dp))
                     ButtonCard(desc = "ButtonCard without title") {
+                        openDialog.value = true
                     }
                     Spacer(Modifier.padding(5.dp))
                     NeoTextField(textFieldValue, label = "NeoTextField")
@@ -128,7 +130,6 @@ fun TestContent() {
                     NumberField(numberState, label = "NumberField")
                 }
             }
-
 
             Spacer(Modifier.padding(12.dp))
 

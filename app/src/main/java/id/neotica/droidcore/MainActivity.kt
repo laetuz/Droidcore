@@ -127,6 +127,7 @@ fun TestContent() {
                         placeholder = "password",
                     )
                     Spacer(Modifier.padding(5.dp))
+                    Text(numberState.longValue.toString())
                     NumberField(numberState, label = "NumberField")
                 }
             }

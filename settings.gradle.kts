@@ -21,10 +21,11 @@ dependencyResolutionManagement {
         mavenCentral()
         maven {
             url = URI("https://jitpack.io")
-        } //(url = "https://jitpack.io")
+        }
     }
 }
 
 rootProject.name = "Droidcore"
+//enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
 include(":droidcore")

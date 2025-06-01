@@ -21,6 +21,27 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 
+/**
+ * A Composable function that provides a styled OutlinedTextField for number input.
+ *
+ * This field is specifically designed for numeric input and includes features like
+ * leading/trailing icons, placeholder text, error state indication, and custom IME actions.
+ * It uses a `MutableState<Long>` to hold and update the numeric value.
+ *
+ * @param value The [MutableState] holding the `Long` value of the text field.
+ * @param onValueChange An optional lambda that is triggered when the text field's value changes.
+ *                      It receives the new string value as input.
+ * @param icon An optional composable lambda for displaying a leading icon.
+ * @param placeHolder An optional string to be displayed as a placeholder when the field is empty.
+ * @param imeAction The [ImeAction] to be performed when the user interacts with the keyboard's action button.
+ *                  Defaults to [ImeAction.Done].
+ * @param visualTransformation An optional [VisualTransformation] to apply to the input text (e.g., for password masking).
+ *                             Defaults to [VisualTransformation.None].
+ * @param isError An optional boolean indicating whether the text field is in an error state.
+ *                Defaults to `false`.
+ * @param trailingIcon An optional composable lambda for displaying a trailing icon.
+ * @param label An optional string to be displayed as a label above the text field.
+ */
 @Composable
 fun NumberField(
     value: MutableState<Long>,

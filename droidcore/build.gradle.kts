@@ -3,7 +3,6 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.androidLibrary)
-//    alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.compose.compiler)
@@ -16,6 +15,45 @@ kotlin {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
+    }
+
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach { iosTarget ->
+        iosTarget.binaries.framework {
+            baseName = "Droidcore"
+            isStatic = true
+        }
+    }
+
+    sourceSets {
+        androidMain.dependencies {
+            implementation(libs.androidx.material.icons.extended)
+        }
+        commonMain.dependencies {
+            api(libs.compose.ui) //implementation(libs.androidx.ui)
+            api(compose.material3) //implementation(libs.androidx.material3)
+//            api()
+            api(compose.runtime)
+            api(compose.foundation)
+            api(compose.components.resources)
+
+            api(compose.components.uiToolingPreview)
+            //cmp
+            api(libs.bundles.compose.multiplatform)
+        }
+        androidMain.dependencies {
+            implementation(libs.androidx.core.ktx)
+            implementation ("com.yogeshpaliyal:speld:1.0.0")
+        }
+        androidUnitTest.dependencies {
+            implementation(libs.junit)
+            implementation(libs.androidx.junit)
+            implementation(libs.androidx.espresso.core)
+        }
+        iosMain.dependencies {  }
     }
 }
 
@@ -61,23 +99,6 @@ android {
             }
         }
     }
-}
-
-dependencies {
-    implementation(libs.androidx.core.ktx)
-
-    implementation(libs.compose.ui) //implementation(libs.androidx.ui)
-    implementation(compose.material3) //implementation(libs.androidx.material3)
-    implementation(compose.runtime)
-    implementation(compose.foundation)
-
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    implementation ("com.yogeshpaliyal:speld:1.0.0")
-
-    //cmp
-    implementation(libs.bundles.compose.multiplatform)
 }
 
 afterEvaluate {

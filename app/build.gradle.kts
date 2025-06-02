@@ -23,7 +23,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "ComposeApp"
+            baseName = "App"
             isStatic = true
         }
     }
@@ -56,7 +56,6 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.androidx.core.ktx)
             implementation(libs.androidx.activity.compose)
-
             implementation(libs.androidx.ui.test.manifest)
 
             //Slider
@@ -79,15 +78,8 @@ kotlin {
 //            implementation(libs.ktor.client.darwin)
         }
         commonMain.dependencies {
-            implementation(project(":droidcore"))
+            api(project(":droidcore"))
 
-            //cmp
-            implementation(libs.bundles.compose.multiplatform)
-            implementation(libs.compose.ui) //implementation(libs.androidx.ui)
-            implementation(compose.material3) //implementation(libs.androidx.material3)
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(libs.compose.ui.tooling)
         }
         commonTest.dependencies {
 //            implementation(libs.kotlin.test)
@@ -147,28 +139,6 @@ android {
     }
 }
 
-//dependencies {
-//    implementation(libs.androidx.core.ktx)
-//    implementation(libs.androidx.activity.compose)
-//
-//    //cmp
-//    implementation(libs.bundles.compose.multiplatform)
-//    implementation(libs.compose.ui) //implementation(libs.androidx.ui)
-//    implementation(compose.material3) //implementation(libs.androidx.material3)
-//    implementation(compose.runtime)
-//    implementation(compose.foundation)
-//
-//    testImplementation(libs.junit)
-//    androidTestImplementation(libs.androidx.junit)
-//    androidTestImplementation(libs.androidx.espresso.core)
-//    debugImplementation(libs.compose.ui.tooling)
-//    debugImplementation(libs.androidx.ui.test.manifest)
-//
-//    //Slider
-//    implementation("io.github.seyoungcho2:filled-slider-compose:1.0.0")
-//    implementation(project(":droidcore"))
-////    implementation(projects.droidcore)
-//
-////    implementation ("com.github.laetuz:Droidcore:1.1")
-//}
-
+dependencies {
+    debugImplementation(compose.uiTooling)
+}

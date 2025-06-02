@@ -35,7 +35,6 @@ kotlin {
         commonMain.dependencies {
             api(libs.compose.ui) //implementation(libs.androidx.ui)
             api(compose.material3) //implementation(libs.androidx.material3)
-//            api()
             api(compose.runtime)
             api(compose.foundation)
             api(compose.components.resources)

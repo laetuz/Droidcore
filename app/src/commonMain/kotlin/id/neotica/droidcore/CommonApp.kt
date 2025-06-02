@@ -18,6 +18,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import id.neotica.droidcore.component.alert.NeoAlert
+import id.neotica.droidcore.component.alert.NeoToast
+import id.neotica.droidcore.component.button.NeoButton
 import id.neotica.droidcore.component.cards.ButtonCard
 import id.neotica.droidcore.component.cards.Pocket
 import id.neotica.droidcore.component.carousel.CarouselCard
@@ -35,6 +37,7 @@ fun CommonApp() {
 @Composable
 fun TestContent() {
     val openDialog = remember { mutableStateOf(false) }
+    val toast = remember { mutableStateOf(false) }
     val textFieldValue = remember { mutableStateOf("") }
     val passwordState = remember { mutableStateOf("") }
     val numberState = remember { mutableLongStateOf(0) }
@@ -109,11 +112,18 @@ fun TestContent() {
                     Spacer(Modifier.padding(5.dp))
                     Text(numberState.longValue.toString())
                     NumberField(numberState, label = "NumberField")
+//                    val context = CompositionContext.
+                    NeoButton("yeah") {
+                        toast.value = true
+                    }
                 }
             }
 
             Spacer(Modifier.padding(12.dp))
 
+            if (toast.value) {
+                NeoToast("This is a toast", toast)
+            }
             if (openDialog.value) {
                 NeoAlert(
                     openDialog = openDialog,

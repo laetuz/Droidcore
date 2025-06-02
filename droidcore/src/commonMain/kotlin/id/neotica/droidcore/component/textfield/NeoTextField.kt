@@ -28,6 +28,7 @@ fun NeoTextField(
     imeAction: ImeAction = ImeAction.Done,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     isError: Boolean? = false,
+    enabled: Boolean = true,
     trailingIcon: (@Composable () -> Unit)? = null,
     label: String? = null
 ) {
@@ -39,6 +40,7 @@ fun NeoTextField(
             textFieldValue = it
             onValueChange?.invoke(it)
         },
+        enabled = enabled,
         leadingIcon = icon,
         colors = OutlinedTextFieldDefaults.colors(
             focusedBorderColor = MaterialTheme.colorScheme.primary,

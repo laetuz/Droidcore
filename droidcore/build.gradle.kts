@@ -107,7 +107,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.laetuz"
                 artifactId = "droidcore-neotica"
-                version = "1.2.6"
+                version = "1.3.0"
             }
         }
     }

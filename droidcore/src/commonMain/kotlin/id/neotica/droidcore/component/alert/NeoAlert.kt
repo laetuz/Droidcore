@@ -10,7 +10,6 @@ import id.neotica.droidcore.component.icon.AlertEnum
 import id.neotica.droidcore.component.icon.AlertIcon
 import org.jetbrains.compose.resources.painterResource
 
-
 @Composable
 fun NeoAlert(
     openDialog: MutableState<Boolean>,

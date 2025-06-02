@@ -101,14 +101,21 @@ android {
 }
 
 afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("maven") {
-                from(components["release"])
-                groupId = "com.github.laetuz"
-                artifactId = "droidcore-neotica"
-                version = "1.3.0"
-            }
-        }
+    publishing.publications.all {
+        this as MavenPublication
+
+        groupId = "com.github.laetuz"
+        artifactId = "droidcore-neotica"
+        version = "1.3.0"
     }
+//    publishing {
+//        publications {
+//            create<MavenPublication>("maven") {
+//                from(components["release"])
+//                groupId = "com.github.laetuz"
+//                artifactId = "droidcore-neotica"
+//                version = "1.3.0"
+//            }
+//        }
+//    }
 }

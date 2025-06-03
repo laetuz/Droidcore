@@ -108,7 +108,11 @@ mavenPublishing {
 
     signAllPublications()
 
-    coordinates(group.toString(), "droidcore", version.toString())
+    coordinates(
+        groupId = "id.neotica",
+        artifactId = "droidcore",
+        version = "1.3.1.3"
+    )
 
     pom {
         name = "Droidcore"

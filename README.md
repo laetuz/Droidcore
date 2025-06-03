@@ -2,7 +2,7 @@ Droidcore
 =====
 ![Release](https://jitpack.io/v/laetuz/Droidcore.svg)
 
-Droidcore is an Android library that gives you various pre-built Jetpack Compose component, curated and built with love from the team at [Neotica](https://neotica.id).
+Droidcore is a Kotlin MultiPlatform library that gives you various pre-built Compose-Multiplatform components, curated and built with love from the team at [Neotica](https://neotica.id).
 
 <img src="https://github.com/user-attachments/assets/f9a48cae-176b-4f81-a553-c4bd63244d06" width="300">
 
@@ -37,7 +37,7 @@ settings.gradle.kts
 And then add to your dependency on your build.gradle(app) file:
 ```gradle
 dependencies {
-    implementation ("com.github.laetuz:Droidcore:1.2.5")
+    implementation ("com.github.laetuz:Droidcore:1.3.0")
 }
 ```
 Remember to always add the latest release version.
@@ -67,3 +67,7 @@ List of components
 6. [CarouselCard](https://neotica.notion.site/9ee8c7af1e0f4c07a4e476726512fa34?pvs=25#dce2b0f3c01c4b7e83561fc7fc610011 'CarouselCard')
 
    <img src="https://github.com/user-attachments/assets/a612ac03-6f4e-4df9-a974-f0b7186866f3" width="300">
+
+7. Flipcard
+
+8. NeoToast

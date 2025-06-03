@@ -1,5 +1,6 @@
 *.iml
 .gradle
+.idea
 /local.properties
 /.idea/caches
 /.idea/libraries
@@ -10,6 +11,10 @@
 .DS_Store
 /build
 /captures
+.kotlin
 .externalNativeBuild
 .cxx
+/iosApp/iosApp.xcodeproj/xcuserdata
+/iosApp/iosApp.xcodeproj/project.xcworkspace/xcuserdata
+
 local.properties

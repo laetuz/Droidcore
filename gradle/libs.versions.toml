@@ -1,41 +1,47 @@
 [versions]
-agp = "8.5.1"
+agp = "8.10.1"
 koinVersion = "3.5.0"
-kotlin = "1.9.0"
+kotlin = "2.1.20"
 coreKtx = "1.12.0"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
-lifecycleRuntimeKtx = "2.7.0"
+lifecycleRuntimeKtx = "2.9.0"
 activityCompose = "1.8.2"
-composeBom = "2024.10.00"
-appcompat = "1.6.1"
-material = "1.11.0"
+composeMultiplatform = "1.8.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
-androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-androidx-ui = { group = "androidx.compose.ui", name = "ui" }
-androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinVersion" }
-koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinVersion" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+androidx-material-icons-extended = {  group = "androidx.compose.material", name = "material-icons-extended"}
+
+#cmp
+cmp-lifecycle-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycleRuntimeKtx" }
+cmp-lifecycle-runtime-ktx = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycleRuntimeKtx" }
+#cmp-general
+compose-ui = { module = "org.jetbrains.compose.ui:ui" }
+compose-ui-graphics = { module = "org.jetbrains.compose.ui:ui-graphics" }
+compose-ui-tooling = { module = "org.jetbrains.compose.ui:ui-tooling", version.ref = "composeMultiplatform" }
+compose-ui-tooling-preview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "composeMultiplatform" }
+compose-runtime = { module = "org.jetbrains.compose.runtime:runtime" }
+compose-foundation = { module = "org.jetbrains.compose.foundation:foundation" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
-jetbrainsKotlinCompose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.28.0" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
+mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.30.0" }
 
+[bundles]
+compose-multiplatform = [
+    "cmp-lifecycle-viewmodel",
+    "cmp-lifecycle-runtime-ktx",
+]

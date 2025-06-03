@@ -18,13 +18,11 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 
-androidx-material-icons-extended = {  group = "androidx.compose.material", name = "material-icons-extended"}
-
 #cmp
 cmp-lifecycle-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycleRuntimeKtx" }
 cmp-lifecycle-runtime-ktx = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycleRuntimeKtx" }
 #cmp-general
-compose-ui = { module = "org.jetbrains.compose.ui:ui" }
+compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "composeMultiplatform" }
 compose-ui-graphics = { module = "org.jetbrains.compose.ui:ui-graphics" }
 compose-ui-tooling = { module = "org.jetbrains.compose.ui:ui-tooling", version.ref = "composeMultiplatform" }
 compose-ui-tooling-preview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "composeMultiplatform" }

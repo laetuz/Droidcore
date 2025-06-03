@@ -1,10 +1,5 @@
 package id.neotica.droidcore.component.textfield
 
-//import androidx.compose.material.icons.Icons
-//import androidx.compose.material.icons.filled.Clear
-//import androidx.compose.material.icons.filled.Lock
-//import androidx.compose.ui.res.painterResource
-//import org.jetbrains.compose.resources.painterResource
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth

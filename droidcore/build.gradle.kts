@@ -32,7 +32,6 @@ kotlin {
 
     sourceSets {
         androidMain.dependencies {
-            implementation(libs.androidx.material.icons.extended)
         }
         commonMain.dependencies {
             api(libs.compose.ui) //implementation(libs.androidx.ui)

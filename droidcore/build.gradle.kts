@@ -1,3 +1,4 @@
+import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -6,6 +7,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.mavenPublish)
     id("maven-publish")
 }
 
@@ -100,14 +102,75 @@ android {
     }
 }
 
-afterEvaluate {
-    publishing.publications.all {
-        this as MavenPublication
 
-        groupId = "com.github.laetuz"
-        artifactId = "droidcore-neotica"
-        version = "1.3.1"
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+
+    signAllPublications()
+
+    coordinates(group.toString(), "droidcore", version.toString())
+
+    pom {
+        name = "Droidcore"
+        description = "Droidcore is a Kotlin MultiPlatform library that gives you various pre-built Compose-Multiplatform components, curated and built with love from the team at Neotica."
+        inceptionYear = "2024"
+        url = "https://github.com/laetuz/Droidcore"
+        licenses {
+            license {
+                name = "The Apache License, Version 2.0"
+                url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+                distribution = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+            }
+        }
+        developers {
+            developer {
+                id = "laetuz"
+                name = "Ryo Martin"
+                url = "https://github.com/laetuz/"
+            }
+        }
+        scm {
+            url = "https://github.com/laetuz/Droidcore"
+            connection = "scm:git:git://github.com/laetuz/Droidcore.git"
+            developerConnection = "scm:git:ssh://git@github.com/laetuz/Droidcore.git"
+        }
     }
+}
+
+//publishing {
+//    publications {
+//        create<MavenPublication>("bar") {
+//            from(components["release"])
+//            groupId = "com.github.laetuz"
+//            artifactId = "droidcore-neotica"
+//            version = "1.3.0"
+//        }
+//        publications.withType<MavenPublication> {
+//            artifact(javadocJar.get())
+//
+//            pom {
+//                name.set("Droidcore")
+//                description.set("Droidcore")
+//            }
+//        }
+
+
+//        groupId = "id.neotica"
+//        artifactId = "droidcore"
+//        version = "1.3.1"
+//    }
+//}
+
+//afterEvaluate {
+//    publishing.publications.all {
+//        this as MavenPublication
+//
+//        groupId = "com.github.laetuz"
+//        artifactId = "droidcore-neotica"
+//        version = "1.3.1"
+//    }
+
+    /**og version**/
 //    publishing {
 //        publications {
 //            create<MavenPublication>("maven") {
@@ -118,4 +181,8 @@ afterEvaluate {
 //            }
 //        }
 //    }
-}
+//}
+
+//val javadocJar by tasks.registering(Jar::class) {
+//    archiveClassifier.set("javadoc")
+//}

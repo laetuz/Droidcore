@@ -1,6 +1,5 @@
 package id.neotica.droidcore
 
-import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -9,9 +8,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.Wallpapers
 import id.neotica.droidcore.ui.theme.DroidcoreTheme
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,10 +27,10 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-const val wallpaperScheme = Wallpapers.NONE
+//const val wallpaperScheme = Wallpapers.NONE
 
 @Preview(
-    wallpaper = wallpaperScheme,
+//    wallpaper = wallpaperScheme,
     )
 @Composable
 fun DroidcorePreview() {
@@ -42,8 +40,8 @@ fun DroidcorePreview() {
 }
 
 @Preview(
-    wallpaper = wallpaperScheme,
-    uiMode = Configuration.UI_MODE_NIGHT_YES
+//    wallpaper = wallpaperScheme,
+//    uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
 fun DroidcorePreviewDark() {
